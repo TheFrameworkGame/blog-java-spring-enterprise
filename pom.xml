@@ -142,9 +142,9 @@
 			<version>1.4</version>
 		</dependency>
 		<dependency>
-			<groupId>org.hsqldb</groupId>
-			<artifactId>hsqldb</artifactId>
-			<version>2.2.7</version>
+			<groupId>org.apache.derby</groupId>
+			<artifactId>derby</artifactId>
+			<version>10.8.2.2</version>
 		</dependency>
 	</dependencies>
 	<build>
@@ -154,23 +154,33 @@
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>hibernate3-maven-plugin</artifactId>
 				<version>2.2</version>
-				<configuration>
-					<components>
-						<component>
-							<name>hbm2ddl</name>
-							<implementation>annotationconfiguration</implementation>
-						</component>
-					</components>
-					<componentProperties>
-						<export>true</export>
-						<jdk5>true</jdk5>
-						<drop>true</drop>
-						<create>true</create>
-						<haltonerror>false</haltonerror>
-						<autocommit>false</autocommit>
-						<format>true</format>
-					</componentProperties>
-				</configuration>
+				<executions>
+					<execution>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>hbm2java</goal>
+						</goals>
+						<inherited>false</inherited>
+						<configuration>
+							<components>
+								<component>
+									<name>hbm2ddl</name>
+									<implementation>annotationconfiguration</implementation>
+								</component>
+							</components>
+							<componentProperties>
+								<export>true</export>
+								<jdk5>true</jdk5>
+								<drop>true</drop>
+								<create>true</create>
+								<haltonerror>false</haltonerror>
+								<autocommit>false</autocommit>
+								<format>true</format>
+							</componentProperties>
+						</configuration>
+					</execution>
+				</executions>
+
 			</plugin>
 		</plugins>
 	</build>
