@@ -17,7 +17,7 @@ public class IndexController {
 	@Transactional(readOnly = true)
 	@RequestMapping
 	public String index(Model m) {
-		m.addAttribute("posts", posts.all());
+		m.addAttribute("posts", posts.frontPage());
 		return "index";
 	}
 }
