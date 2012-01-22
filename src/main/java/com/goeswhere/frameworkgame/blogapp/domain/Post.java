@@ -3,6 +3,7 @@ package com.goeswhere.frameworkgame.blogapp.domain;
 import java.util.List;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -42,7 +43,7 @@ public class Post {
 	public String tease;
 
 	@Column(nullable = false)
-	@OneToMany(fetch = FetchType.EAGER)
+	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	public List<Comment> comments;
 
 	@Column(nullable = false)

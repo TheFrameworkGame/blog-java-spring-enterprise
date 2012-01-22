@@ -41,4 +41,12 @@ public class PostDao {
 	public void merge(Post p) {
 		em.merge(p);
 	}
+
+	public Post bySlug(String slug) {
+		final CriteriaBuilder cb = em.getCriteriaBuilder();
+		final CriteriaQuery<Post> cq = cb.createQuery(Post.class);
+		final Root<Post> post = cq.from(Post.class);
+		cq.where(cb.equal(post.get(Post_.slug), slug));
+		return em.createQuery(cq).getSingleResult();
+	}
 }

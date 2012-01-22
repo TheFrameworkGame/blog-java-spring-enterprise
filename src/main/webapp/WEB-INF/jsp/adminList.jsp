@@ -3,7 +3,7 @@
 <body>
 	<a href="<c:url value="/admin/new"/>">new post</a>
 	<c:forEach items="${posts}" var="post">
-		${post.title} ${post.tease}
+		${post.title} ${post.postDate} ${post.tease}
 	</c:forEach>
 </body>
 </html>

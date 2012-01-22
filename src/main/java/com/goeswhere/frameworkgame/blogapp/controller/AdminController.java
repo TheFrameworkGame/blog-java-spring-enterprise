@@ -32,6 +32,8 @@ public class AdminController {
 
 	@RequestMapping(value = "update", method = RequestMethod.POST)
 	public String update(@ModelAttribute Post p) {
+		if (null == p.id)
+			p.postDate = System.currentTimeMillis();
 		posts.merge(p);
 		return "redirect:/admin/";
 	}
