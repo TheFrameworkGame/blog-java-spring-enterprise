@@ -62,7 +62,71 @@ public class Post {
 		return title;
 	}
 
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public String getSlug() {
+		return slug;
+	}
+
+	public void setSlug(String slug) {
+		this.slug = slug;
+	}
+
+	public String getBody() {
+		return body;
+	}
+
+	public void setBody(String body) {
+		this.body = body;
+	}
+
 	public String getTease() {
 		return tease;
+	}
+
+	public void setTease(String tease) {
+		this.tease = tease;
+	}
+
+	public List<Comment> getComments() {
+		return comments;
+	}
+
+	public void setComments(List<Comment> comments) {
+		this.comments = comments;
+	}
+
+	public Set<Category> getCategories() {
+		return categories;
+	}
+
+	public void setCategories(Set<Category> categories) {
+		this.categories = categories;
+	}
+
+	public long getPostDate() {
+		return postDate;
+	}
+
+	public void setPostDate(long postDate) {
+		this.postDate = postDate;
+	}
+
+	public boolean isDraft() {
+		return draft;
+	}
+
+	public void setDraft(boolean draft) {
+		this.draft = draft;
+	}
+
+	public boolean isHasComments() {
+		return hasComments;
+	}
+
+	public void setHasComments(boolean hasComments) {
+		this.hasComments = hasComments;
 	}
 }

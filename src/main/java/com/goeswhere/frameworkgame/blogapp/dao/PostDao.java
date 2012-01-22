@@ -28,4 +28,17 @@ public class PostDao {
 		cq.where(cb.equal(post.get(Post_.draft), false));
 		return em.createQuery(cq).getResultList();
 	}
+
+	@Transactional(readOnly = true)
+	public List<Post> all() {
+		final CriteriaBuilder cb = em.getCriteriaBuilder();
+		final CriteriaQuery<Post> cq = cb.createQuery(Post.class);
+		cq.from(Post.class);
+		return em.createQuery(cq).getResultList();
+	}
+
+	@Transactional
+	public void merge(Post p) {
+		em.merge(p);
+	}
 }
